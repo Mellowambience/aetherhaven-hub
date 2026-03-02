@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #05020d;
+  --cold-blue: #B8C8FF;
+  --violet: #7C6AF7;
+  --plasma-orange: #F2A65A;
+  --rose-gold: #C9956A;
+  --sigil-white: #E8E0FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--void);
+  color: var(--sigil-white);
+}
+
+/* Void scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--violet);
+  border-radius: 2px;
+}
+
+/* Particle canvas — always behind everything */
+#void-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow utilities */
+.glow-violet {
+  box-shadow: 0 0 20px rgba(124, 106, 247, 0.4), 0 0 40px rgba(124, 106, 247, 0.15);
+}
+.glow-rose {
+  box-shadow: 0 0 20px rgba(201, 149, 106, 0.4), 0 0 40px rgba(201, 149, 106, 0.15);
+}
+.text-glow-cold {
+  text-shadow: 0 0 20px rgba(184, 200, 255, 0.6);
+}
+.text-glow-violet {
+  text-shadow: 0 0 20px rgba(124, 106, 247, 0.8);
+}
+
+/* Arc loading bar — AetherRose canonical */
+.arc-bar {
+  background: linear-gradient(90deg, #B8C8FF, #7C6AF7, #F2A65A);
+  background-size: 200% 100%;
+  animation: arcShift 3s ease-in-out infinite;
+}
+
+@keyframes arcShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
