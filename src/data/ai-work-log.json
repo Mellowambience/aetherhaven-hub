@@ -1,0 +1,65 @@
+[
+  {
+    "id": "wl-009",
+    "at": "2026-03-04",
+    "entry": "Bluebird Song Chamber spec written — first tenant PoC, DB schema, component list, lore block",
+    "type": "spec",
+    "link": null
+  },
+  {
+    "id": "wl-008",
+    "at": "2026-03-04",
+    "entry": "MaaS architecture doc written — 4 tenant tiers, revenue model, sprint dependency map",
+    "type": "spec",
+    "link": null
+  },
+  {
+    "id": "wl-007",
+    "at": "2026-03-04",
+    "entry": "AI Work Log component built and wired to front page — Option A (static JSON, DB-swappable)",
+    "type": "commit",
+    "link": null
+  },
+  {
+    "id": "wl-006",
+    "at": "2026-03-02",
+    "entry": "mellowambience.github.io redesigned — maximalist-minimalist stadium layout, Hub as gravitational centerpiece",
+    "type": "deploy",
+    "link": "https://mellowambience.github.io"
+  },
+  {
+    "id": "wl-005",
+    "at": "2026-03-02",
+    "entry": "aetherhaven-hub repo created, Sprint 1 scaffold pushed — 18 files, all Void Lobby components",
+    "type": "commit",
+    "link": "https://github.com/Mellowambience/aetherhaven-hub"
+  },
+  {
+    "id": "wl-004",
+    "at": "2026-03-02",
+    "entry": "Sprint 1 plan written — Void Lobby as playable holding page, component list, DB schema",
+    "type": "spec",
+    "link": null
+  },
+  {
+    "id": "wl-003",
+    "at": "2026-03-02",
+    "entry": "Google Drive audit completed — 9,200+ items scanned, categorized, deduped",
+    "type": "system",
+    "link": null
+  },
+  {
+    "id": "wl-002",
+    "at": "2026-03-02",
+    "entry": "Tech stack locked: Next.js 15 + Tailwind + Framer Motion + Supabase + Vercel",
+    "type": "spec",
+    "link": null
+  },
+  {
+    "id": "wl-001",
+    "at": "2026-03-02",
+    "entry": "Hub concept locked — 7 rooms, Traveller rank system, Void Shards, Forge Quests. Sprint 0 complete.",
+    "type": "spec",
+    "link": null
+  }
+]

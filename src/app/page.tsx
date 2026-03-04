@@ -6,7 +6,10 @@ import TravelerCounter from "@/components/TravelerCounter";
 import TransmissionWall from "@/components/TransmissionWall";
 import RoomPortals from "@/components/RoomPortals";
 import SigilBadge from "@/components/SigilBadge";
+import WorkLog from "@/components/WorkLog";
+import workLogData from "@/data/ai-work-log.json";
 import { motion } from "framer-motion";
+import type { WorkLogEntry } from "@/components/WorkLog";
 
 // Prevent SSR for canvas
 const VoidCanvasNoSSR = dynamic(() => import("@/components/VoidCanvas"), {
@@ -81,6 +84,16 @@ export default function VoidLobby() {
           className="w-full max-w-2xl mb-16"
         >
           <TransmissionWall />
+        </motion.section>
+
+        {/* AI Work Log */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.0 }}
+          className="w-full max-w-2xl mb-16"
+        >
+          <WorkLog entries={workLogData as WorkLogEntry[]} />
         </motion.section>
 
         {/* Room Portals */}
