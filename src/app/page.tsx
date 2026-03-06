@@ -7,6 +7,7 @@ import TransmissionWall from "@/components/TransmissionWall";
 import RoomPortals from "@/components/RoomPortals";
 import SigilBadge from "@/components/SigilBadge";
 import WorkLog from "@/components/WorkLog";
+import CountdownTower from "@/components/CountdownTower";
 import workLogData from "@/data/ai-work-log.json";
 import { motion } from "framer-motion";
 import type { WorkLogEntry } from "@/components/WorkLog";
@@ -49,31 +50,39 @@ export default function VoidLobby() {
           <TravelerCounter />
         </motion.header>
 
-        {/* Hero */}
+        {/* Hero + Tower row */}
         <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, delay: 0.3 }}
-          className="flex flex-col items-center text-center mt-16 mb-12 max-w-2xl"
+          className="w-full max-w-4xl flex flex-col lg:flex-row items-center lg:items-end justify-center gap-10 mt-16 mb-12"
         >
-          {/* Arc loading bar — canonical AetherRose */}
-          <div className="w-24 h-0.5 arc-bar rounded-full mb-8 opacity-80" />
+          {/* Hero text */}
+          <div className="flex flex-col items-center text-center max-w-xl">
+            {/* Arc loading bar — canonical AetherRose */}
+            <div className="w-24 h-0.5 arc-bar rounded-full mb-8 opacity-80" />
 
-          <h1 className="font-display text-3xl sm:text-5xl leading-tight text-glow-cold mb-6">
-            The Void Lobby
-          </h1>
+            <h1 className="font-display text-3xl sm:text-5xl leading-tight text-glow-cold mb-6">
+              The Void Lobby
+            </h1>
 
-          <p className="text-cold-blue/60 text-sm sm:text-base leading-relaxed font-light tracking-wide max-w-lg">
-            You have arrived at the Mothership. Travelers drift through here from across the empire.
-            Leave a transmission. Find your sector. The Forge awakens soon.
-          </p>
+            <p className="text-cold-blue/60 text-sm sm:text-base leading-relaxed font-light tracking-wide max-w-lg">
+              You have arrived at the Mothership. Travelers drift through here from across the empire.
+              Leave a transmission. Find your sector. The Forge awakens soon.
+            </p>
 
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}
-            className="w-32 h-px bg-gradient-to-r from-transparent via-violet to-transparent mt-8 opacity-60"
-          />
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 1.5, delay: 1, ease: "easeInOut" }}
+              className="w-32 h-px bg-gradient-to-r from-transparent via-violet to-transparent mt-8 opacity-60"
+            />
+          </div>
+
+          {/* 🗼 Leaning Tower of Aetherhaven — evergreen */}
+          <div className="flex-shrink-0">
+            <CountdownTower />
+          </div>
         </motion.section>
 
         {/* Transmission Wall */}
