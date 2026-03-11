@@ -1,54 +1,51 @@
-/**
- * Generates a deterministic SVG sigil glyph from a seed string.
- * Pure math — no external deps. Used for visitor identity + transmissions.
- */
-
-export function generateSigil(seed: string): string {
-  // Simple hash to get deterministic numbers from seed
-  let hash = 0;
-  for (let i = 0; i < seed.length; i++) {
-    hash = ((hash << 5) - hash + seed.charCodeAt(i)) | 0;
-  }
-
-  const abs = Math.abs(hash);
-  const hue = abs % 360;
-  const variant = abs % 4;
-
-  const paths = [
-    `M50,10 L90,90 L10,90 Z M50,30 L75,75 L25,75 Z`,
-    `M50,10 L85,40 L70,85 L30,85 L15,40 Z M50,25 L72,42 L63,72 L37,72 L28,42 Z`,
-    `M50,5 L95,50 L50,95 L5,50 Z M50,20 L80,50 L50,80 L20,50 Z`,
-    `M50,10 C80,10 90,40 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,40 20,10 50,10 Z M50,25 C68,25 75,40 75,50 C75,65 63,75 50,75 C37,75 25,65 25,50 C25,40 32,25 50,25 Z`,
-  ];
-
-  return `
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="glow-${abs}">
-          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-          <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <g filter="url(#glow-${abs})" fill="none" stroke="hsl(${hue}, 80%, 70%)" stroke-width="1.5" opacity="0.9">
-        <path d="${paths[variant]}"/>
-      </g>
-    </svg>
-  `;
+interface SigilOptions {
+  size?: number;
+  strokeWidth?: number;
 }
 
 export function getSeedFromBrowser(): string {
-  if (typeof window === "undefined") return "void-traveler";
-  const nav = window.navigator;
-  const raw = [
-    nav.language,
-    nav.platform || "",
-    String(window.screen.width),
-    String(window.screen.height),
-    String(window.screen.colorDepth),
-    Intl.DateTimeFormat().resolvedOptions().timeZone,
-  ].join("|");
-  return raw;
+  if (typeof window === "undefined") return "void-seed";
+  let seed = localStorage.getItem("aether-seed");
+  if (!seed) {
+    seed = Math.random().toString(36).slice(2);
+    localStorage.setItem("aether-seed", seed);
+  }
+  return seed;
+}
+
+export function generateSigil(seed: string, opts: SigilOptions = {}): string {
+  const size = opts.size ?? 32;
+  const sw = opts.strokeWidth ?? 0.8;
+
+  // Deterministic hash from seed
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) {
+    h = ((h << 5) - h + seed.charCodeAt(i)) | 0;
+  }
+  const r = (h & 0xff) / 255;
+  const hue = Math.round(r * 360);
+  const color = `hsl(${hue}, 70%, 65%)`;
+
+  const center = size / 2;
+  const radius = size / 2.8;
+
+  // Generate 3 points for triangular sigil
+  const angleSeed = Math.abs(h);
+  const angles = [0, 1, 2].map((i) => {
+    const base = (i * Math.PI * 2) / 3;
+    const ji = ((angleSeed >> (i * 4)) & 0xf) / 16 - 0.5;
+    return base + ji * 0.6;
+  });
+  const points = angles.map((a) => ({
+    x: center + Math.cos(a) * radius,
+    y: center + Math.sin(a) * radius,
+  }));
+
+  const path = points
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(2)} ${p.y.toFixed(2)}`)
+    .join(" ") + " Z";
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <path d="${path}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round" />
+  </svg>`;
 }
