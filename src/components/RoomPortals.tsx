@@ -67,7 +67,7 @@ export default function RoomPortals() {
           >
             <div
               className="border border-white/5 group-hover:border-white/15 rounded-lg p-4 transition-all duration-300 bg-white/[0.02] group-hover:bg-white/[0.04]"
-              style={{ "--room-color": room.color } as React.CSSProperties}
+              style={{ "--room-color": room.color } as import("react").CSSProperties}
             >
               <span className="text-2xl block mb-2">{room.icon}</span>
               <p
