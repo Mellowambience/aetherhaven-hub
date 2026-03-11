@@ -1,50 +1,78 @@
 [
   {
+    "id": "wl-013",
+    "at": "2026-03-10",
+    "entry": "aethertab/landing CSS bugs fixed \u2014 #id\u2192#bg (orbs invisible), .hero-preview selector typo (preview card missing on desktop)",
+    "type": "commit",
+    "link": "https://github.com/Mellowambience/aethertab"
+  },
+  {
+    "id": "wl-012",
+    "at": "2026-03-10",
+    "entry": "mellowambience.github.io 'Work With Me' section rewritten \u2014 3 real service nodes at hourly rates, Aetherhaven copy",
+    "type": "deploy",
+    "link": "https://mellowambience.github.io"
+  },
+  {
+    "id": "wl-011",
+    "at": "2026-03-10",
+    "entry": "AetherTab GitHub Release v1.0.0 created \u2014 landing page Install section added, 3-step sideload flow",
+    "type": "deploy",
+    "link": "https://github.com/Mellowambience/aethertab/releases/tag/v1.0.0"
+  },
+  {
+    "id": "wl-010",
+    "at": "2026-03-09",
+    "entry": "Natalie's site V2 deployed \u2014 mermaid deep ocean aesthetic, Cormorant Garamond, animated bioluminescent orbs + bubbles",
+    "type": "deploy",
+    "link": "https://mellowambience.github.io/natalie/"
+  },
+  {
     "id": "wl-009",
     "at": "2026-03-04",
-    "entry": "Bluebird Song Chamber spec written — first tenant PoC, DB schema, component list, lore block",
+    "entry": "Bluebird Song Chamber spec written \u2014 first tenant PoC, DB schema, component list, lore block",
     "type": "spec",
     "link": null
   },
   {
     "id": "wl-008",
     "at": "2026-03-04",
-    "entry": "MaaS architecture doc written — 4 tenant tiers, revenue model, sprint dependency map",
+    "entry": "MaaS architecture doc written \u2014 4 tenant tiers, revenue model, sprint dependency map",
     "type": "spec",
     "link": null
   },
   {
     "id": "wl-007",
     "at": "2026-03-04",
-    "entry": "AI Work Log component built and wired to front page — Option A (static JSON, DB-swappable)",
+    "entry": "AI Work Log component built and wired to front page \u2014 Option A (static JSON, DB-swappable)",
     "type": "commit",
     "link": null
   },
   {
     "id": "wl-006",
     "at": "2026-03-02",
-    "entry": "mellowambience.github.io redesigned — maximalist-minimalist stadium layout, Hub as gravitational centerpiece",
+    "entry": "mellowambience.github.io redesigned \u2014 maximalist-minimalist stadium layout, Hub as gravitational centerpiece",
     "type": "deploy",
     "link": "https://mellowambience.github.io"
   },
   {
     "id": "wl-005",
     "at": "2026-03-02",
-    "entry": "aetherhaven-hub repo created, Sprint 1 scaffold pushed — 18 files, all Void Lobby components",
+    "entry": "aetherhaven-hub repo created, Sprint 1 scaffold pushed \u2014 18 files, all Void Lobby components",
     "type": "commit",
     "link": "https://github.com/Mellowambience/aetherhaven-hub"
   },
   {
     "id": "wl-004",
     "at": "2026-03-02",
-    "entry": "Sprint 1 plan written — Void Lobby as playable holding page, component list, DB schema",
+    "entry": "Sprint 1 plan written \u2014 Void Lobby as playable holding page, component list, DB schema",
     "type": "spec",
     "link": null
   },
   {
     "id": "wl-003",
     "at": "2026-03-02",
-    "entry": "Google Drive audit completed — 9,200+ items scanned, categorized, deduped",
+    "entry": "Google Drive audit completed \u2014 9,200+ items scanned, categorized, deduped",
     "type": "system",
     "link": null
   },
@@ -58,7 +86,7 @@
   {
     "id": "wl-001",
     "at": "2026-03-02",
-    "entry": "Hub concept locked — 7 rooms, Traveller rank system, Void Shards, Forge Quests. Sprint 0 complete.",
+    "entry": "Hub concept locked \u2014 7 rooms, Traveller rank system, Void Shards, Forge Quests. Sprint 0 complete.",
     "type": "spec",
     "link": null
   }

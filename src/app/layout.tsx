@@ -4,11 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Aetherhaven Hub — Enter the Void",
   description:
-    "The Mothership. A living world inspired by VMK, Habbo Hotel, MapleStory, and RuneScape. Travelers, Void Shards, and the Forge await.",
+    "The Mothership. A living world where travelers drift through void rooms, leave transmissions, earn Void Shards, and build the empire.",
+  icons: { icon: "/favicon.ico" },
   openGraph: {
     title: "Aetherhaven Hub",
-    description: "Enter the Void. Find your sector.",
-    images: ["/og-image.png"],
+    description: "Enter the Void. All sectors accessible. All travelers welcome.",
+    url: "https://aetherhaven-hub.vercel.app",
+    siteName: "Aetherhaven Hub",
   },
 };
 
@@ -18,18 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Space+Grotesk:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className="bg-void text-sigil-white font-sans antialiased overflow-x-hidden">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

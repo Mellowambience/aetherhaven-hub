@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { supabase, supabaseReady } from "@/lib/supabase";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function TravelerCounter() {
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
+    if (!supabaseReady) { setCount(0); return; }
     // Supabase Realtime presence channel
     const channel = supabase.channel("void-lobby", {
       config: { presence: { key: "traveler" } },

@@ -5,16 +5,18 @@
 // North Star declared: 2026-03-06 | Launch: July 17, 2026
 
 import { useEffect, useState } from "react";
+import React from "react";
 
 const LAUNCH_DATE = new Date("2026-07-17T00:00:00-04:00");
 
 const GAPS = [
-  { id: "pbkdf2", label: "🔐 PBKDF2 params + salt strategy", done: false },
-  { id: "spotify", label: "🎵 Spotify OAuth PKCE flow", done: false },
-  { id: "filing", label: "📁 Aetherhaven Identity filing", done: false },
-  { id: "fmq", label: "🎭 FMQ shadow drop prep", done: false },
-  { id: "mist", label: "🌱 MIST Phase 1 seed", done: false },
-  { id: "amara", label: "⚗️ Amara v2.0 substrate live", done: false },
+  { id: "pbkdf2",  label: "🔐 PBKDF2 params + salt strategy",  done: false },
+  { id: "spotify", label: "🎵 Spotify OAuth PKCE flow",         done: false },
+  { id: "filing",  label: "📁 Aetherhaven Identity filing",     done: false },
+  { id: "fmq",     label: "🎭 FMQ shadow drop prep",            done: false },
+  { id: "mist",    label: "🌱 MIST Phase 1 seed",               done: false },
+  { id: "amara",   label: "⚗️ Amara v2.0 substrate live",       done: false },
+  { id: "hub-s1",  label: "🌑 Hub Sprint 1 scaffold pushed",    done: true  },
 ];
 
 function pad(n: number) {
@@ -35,9 +37,9 @@ export default function CountdownTower() {
         return;
       }
       setTime({
-        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        days:  Math.floor(diff / (1000 * 60 * 60 * 24)),
         hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        mins: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+        mins:  Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
       });
     }
     tick();
@@ -92,12 +94,12 @@ export default function CountdownTower() {
       {/* Countdown */}
       <div className="flex justify-center items-center gap-2 mb-5">
         {[
-          { val: time.days, label: "days" },
+          { val: time.days,  label: "days"  },
           { val: time.hours, label: "hours" },
-          { val: time.mins, label: "mins" },
+          { val: time.mins,  label: "mins"  },
         ].map((unit, i) => (
-          <>
-            <div key={unit.label} className="flex flex-col items-center">
+          <React.Fragment key={unit.label}>
+            <div className="flex flex-col items-center">
               <span
                 className="text-3xl font-bold text-[#D4AF77] leading-none"
                 style={{ textShadow: "0 0 12px rgba(212,175,119,0.4)" }}
@@ -111,7 +113,7 @@ export default function CountdownTower() {
             {i < 2 && (
               <span className="text-[#D4AF77] opacity-50 text-sm mb-3">∴</span>
             )}
-          </>
+          </React.Fragment>
         ))}
       </div>
 

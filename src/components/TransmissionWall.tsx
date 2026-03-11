@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { supabase, type Transmission } from "@/lib/supabase";
+import { supabase, supabaseReady, type Transmission } from "@/lib/supabase";
 import { generateSigil, getSeedFromBrowser } from "@/lib/sigil";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -21,6 +21,10 @@ export default function TransmissionWall() {
 
   // Fetch initial transmissions + subscribe to new ones
   useEffect(() => {
+    if (!supabaseReady) {
+      setTransmissions([]);
+      return;
+    }
     async function load() {
       const { data } = await supabase
         .from("transmissions")
@@ -51,7 +55,7 @@ export default function TransmissionWall() {
   }, []);
 
   async function handleSend() {
-    if (!input.trim() || sending) return;
+    if (!input.trim() || sending || !supabaseReady) return;
     setSending(true);
     setError(null);
 
