@@ -1,7 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import VoidCanvas from "@/components/VoidCanvas";
 import TravelerCounter from "@/components/TravelerCounter";
 import TransmissionWall from "@/components/TransmissionWall";
 import RoomPortals from "@/components/RoomPortals";
