@@ -7,6 +7,7 @@ import RoomPortals from "@/components/RoomPortals";
 import SigilBadge from "@/components/SigilBadge";
 import WorkLog from "@/components/WorkLog";
 import CountdownTower from "@/components/CountdownTower";
+import GoldmazeEmbed from "@/components/GoldmazeEmbed";
 import workLogData from "@/data/ai-work-log.json";
 import { motion } from "framer-motion";
 import type { WorkLogEntry } from "@/components/WorkLog";
@@ -67,7 +68,7 @@ export default function VoidLobby() {
 
             <p className="text-cold-blue/60 text-sm sm:text-base leading-relaxed font-light tracking-wide max-w-lg">
               You have arrived at the Mothership. Travelers drift through here from across the empire.
-              Leave a transmission. Find your sector. The Forge awakens'soon.
+              Leave a transmission. Find your sector. The Forge awakens&apos;soon.
             </p>
 
             <motion.div
@@ -78,7 +79,7 @@ export default function VoidLobby() {
             />
           </div>
 
-          {/* 🗼 Leaning Tower of Aetherhaven — evergreen */}
+          {/* 📺 Leaning Tower of Aetherhaven — evergreen */}
           <div className="flex-shrink-0">
             <CountdownTower />
           </div>
@@ -92,6 +93,16 @@ export default function VoidLobby() {
           className="w-full max-w-2xl mb-16"
         >
           <TransmissionWall />
+        </motion.section>
+
+        {/* The Goldmaze — pico-8-edu embed */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.9 }}
+          className="w-full max-w-2xl mb-16"
+        >
+          <GoldmazeEmbed />
         </motion.section>
 
         {/* Ambient Sound */}
