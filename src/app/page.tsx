@@ -67,7 +67,7 @@ export default function VoidLobby() {
 
             <p className="text-cold-blue/60 text-sm sm:text-base leading-relaxed font-light tracking-wide max-w-lg">
               You have arrived at the Mothership. Travelers drift through here from across the empire.
-              Leave a transmission. Find your sector. The Forge awakens soon.
+              Leave a transmission. Find your sector. The Forge awakens'soon.
             </p>
 
             <motion.div
@@ -92,6 +92,27 @@ export default function VoidLobby() {
           className="w-full max-w-2xl mb-16"
         >
           <TransmissionWall />
+        </motion.section>
+
+        {/* Ambient Sound */}
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.95 }}
+          className="w-full max-w-2xl mb-16"
+        >
+          <p className="text-xs tracking-[0.2em] uppercase text-cold-blue/40 mb-3 text-center">
+            Ambient Signal
+          </p>
+          <iframe
+            style={{ borderRadius: "12px" }}
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1FwNNFFgOB4luk?utm_source=generator&theme=0"
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          />
         </motion.section>
 
         {/* AI Work Log */}
@@ -120,8 +141,7 @@ export default function VoidLobby() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 2 }}
-        className="fixed bottom-0 w-full z-20 flex justify-center pb-4"
-      >
+        className="fixed bottom-0 w-full z-20 flex justify-center pb-4">
         <p className="text-xs text-cold-blue/20 tracking-[0.3em] uppercase font-light">
           Aetherhaven · Est. 2026 · All Sectors
         </p>
